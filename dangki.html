@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Ký</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: rgb(65, 55, 55);
+        color: white;
+        text-align: center;
+        padding: 50px;
+      }
+      #wrapper {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #form-register {
+        min-width: 400px;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 30px 30px 40px;
+        box-shadow: 0px 0px 17px rgba(255, 254, 254, 0.8);
+        border-radius: 15px;
+      }
+      .form-heading {
+        font-size: 25px;
+        color: #f5f5f5;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .form-group {
+        border-bottom: 1px solid #fff;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+      .form-group i {
+        color: #fff;
+        margin-right: 10px;
+      }
+      .form-input {
+        background: transparent;
+        border: 0;
+        outline: 0;
+        color: #f5f5f5;
+        width: 100%;
+        padding: 8px;
+      }
+      .form-submit {
+        background: transparent;
+        border: 1px solid #f5f5f5;
+        color: #fff;
+        width: 100%;
+        text-transform: uppercase;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+      .form-submit:hover {
+        color: #0c0202;
+        background: #f5f5f5;
+      }
+      p {
+        margin-top: 20px;
+      }
+      a {
+        color: #f5f5f5;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      body {
+        background-image: url(/a1.jpeg);
+        background-size: cover;
+        background-position-y: -450px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <form id="form-register" style="border-radius: 15px;">
+        <img src="logo canh cut.jpg" alt="Logo" style="height: 60px; margin-bottom: 20px;">
+        <h1 class="form-heading">Đăng Ký</h1>
+        <div class="form-group">
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="text"
+            id="username"
+            class="form-input"
+            placeholder="Tên Đăng Nhập"
+          />
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-key"></i>
+          <input
+            type="password"
+            id="password"
+            class="form-input"
+            placeholder="Mật Khẩu"
+          />
+        </div>
+        <input type="submit" value="Đăng Ký" class="form-submit" />
+        <p>Đã có tài khoản? <a href="index.html">Đăng nhập</a></p>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("form-register")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Ngăn chặn gửi form mặc định
+          let username = document.getElementById("username").value;
+          let password = document.getElementById("password").value;
+
+          if (username === "" || password === "") {
+            alert("Vui lòng nhập đầy đủ thông tin!");
+            return;
+          }
+
+          // Lưu vào localStorage
+          localStorage.setItem("username", username);
+          localStorage.setItem("password", password);
+
+          alert("Đăng ký thành công! Hãy đăng nhập.");
+          window.location.href = "index.html"; // Chuyển đến trang đăng nhập
+        });
+    </script>
+  </body>
+</html>
